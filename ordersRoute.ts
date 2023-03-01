@@ -25,6 +25,6 @@ options: FastifyPluginOptions) => {
 		}
 	});
 };
-	
+
 export default fp(OrderRoute);
 
