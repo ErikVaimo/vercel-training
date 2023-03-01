@@ -7,13 +7,20 @@ import data from "./data";
 interface orderParams {
 	id: string;
 }
-
+interface order {
+	id: number,
+	name: string
+}
+interface data {
+	items: order[]
+}
+const orderData: data = data;
 
 // @ts-ignore
 const OrderRoute: FastifyPluginAsync = async (server: FastifyInstance,
 options: FastifyPluginOptions) => {
 	server.get('/orders', {}, async (request, reply) => {
-			return reply.code(200).send(data.items)
+			return reply.code(200).send(orderData.items)
 	});
 
 	server.get<{ Params: orderParams }>('/orders/:id', {}, async (request, reply) => {

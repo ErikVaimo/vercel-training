@@ -9,7 +9,10 @@ const app = Fastify({
   logger: false,
 });
 
-
+// Register your application as a normal plugin.
+app.register(import("../functions/index"), {
+    prefix: '/'
+});
 app.register(import("../ordersRoute"), {
     prefix: '/'
 });
