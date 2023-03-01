@@ -13,7 +13,7 @@ interface orderParams {
 const OrderRoute: FastifyPluginAsync = async (server: FastifyInstance,
 options: FastifyPluginOptions) => {
 	server.get('/orders', {}, async (request, reply) => {
-			return reply.code(200).send(data)
+			return reply.code(200).send(data.items)
 	});
 
 	server.get<{ Params: orderParams }>('/orders/:id', {}, async (request, reply) => {
